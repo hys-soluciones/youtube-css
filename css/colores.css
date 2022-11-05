@@ -1,0 +1,78 @@
+.color-bay-name {
+  background-color: coral;
+  color: rebeccapurple;
+  border: thick solid greenyellow;
+}
+
+/* 
+Sistema hexadecimal
+0123456789ABCDEF
+
+RGB: red, green, blue(Medios de pantallas digitales)vs CMYK,Cyan,Magenta,Yellow,Key(modelos de impresoras)
+
+Colores en Hex van a ser colores de 6 digitos
+*/
+.color-hex {
+  background-color: #ff660050;
+  background-color: #00000050;
+  color: #663399;
+  border: thick solid #adff2f;
+}
+
+/* 
+Sistema RGB Sistemas para pantallas digitales
+*/
+.color-rgb {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(200, 150, 150);
+  border: thick solid rgb(255, 0, 0);
+}
+/* 
+Sistema HSL: 
+HueSaturationLigtheness(Tono-Saturacion-Luminocidad).
+El primer valor es Hue(Circulo cromatico)
+0º=red,
+60º=yellow,
+120º=green,
+180ª=cyan,
+240ª=blue,
+360ª=margenta,
+
+El segundo valor es saturacion o intencidad del color.
+0%- color en escala de grises.
+100%- color puro.
+
+El tercero lightness: es la luminosidad del color.
+0%- Es el color negro
+50%- Es el color puro
+100%- Es el color blanco
+*/
+.color-hsl {
+  background-color: hsl(60, 100%, 50%);
+  background-color: hsla(60, 100%, 50%, 0.5);
+  background-color: hsla(60, 100%, 50%, 0.75);
+  color: hsl(270, 50%, 40%);
+  color: hsl(0, 0%, 0%);
+  border: thick solid hsl(84, 100%, 59%);
+}
+
+/* 
+vValor Transparent, color transparenst es igual a aplicar rgba(0,0,0,0), pero el valor currenColor : hereda el valor por defecto o asignado de la propiedad color, del ancestro que tenga definida esta propiedad, busca del ancestro mas cercano al mas lejano
+*/
+.color-transparent-curren {
+  background-color: darkmagenta;
+  background-color: currentColor;
+  background-color: transparent;
+  border: thick solid currentColor;
+}
+
+.opacity {
+  background-color: orchid;
+  color: navy;
+  border: thick solid black;
+  opacity: 0.5;
+}
+.opacity-30 {
+  opacity: 0.3;
+}

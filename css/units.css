@@ -1,0 +1,142 @@
+/* 
+Unidades de Medidas: se pueden clasificar en dos.
+-1)Absolutas: si valor no cambia son unidades del mundo real.
+-pc, cm. mm, in, Q.(Se utiliza cuando las paginas se ban a imprimir)
+-pt(1/72in)
+-px(1/96in)
+
+--2)Relativas: Su valor es relativo a un contexto.
+em, rem,ex, ch. al tamaño de la fuente.
+
+-em: basada en ala anchura de la "m" de -la fuente del elemento.(Recomendado para hacer en targetas)
+-rem: basada en la anchura de la "m" de la fuente del elemento raiz html.(Recomendado para todo lo que tenga que ver con tipografia)
+-ex: basada en la altura de la "x" de la fuente del elemento.
+-ch: basada en la anchura "0" de la fuente del elemento.
+
+-%: al tamaño del contenedor.(Para responsivo)
+-vw,vh, vmin, vmax: al tamaño del viwport.(Para los efectos de pantalla completa)
+
+El viwport: Es el area visible donde se muestra el contenido HTML.
+
+--vw--ancho del viwport, va del 1 al 100.
+--vh--alto del viwport, va del 1 al 100.
+--vmin-- entre vw y vh toma el que tenga el menor valor.
+--vmax-- entre vw y vh toma el que tenga el mayor valor.
+
+Converciones entre unidades. https://pxtoem.com/
+*/
+/* 
+El codigo a continuacion es para resetear el formateo y no tener problemas con el tamaño de las cajas y sus bordes.
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+*/
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  /* recomendacion siempre definir el font-size en px */
+  font-size: 16px;
+  background-color: black;
+}
+body {
+  background-color: blanchedalmond;
+  margin: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+.pixels {
+  background-color: cadetblue;
+  width: 500px;
+  height: 400px;
+  padding: 20px;
+  font-size: 32px;
+  border: thick solid rebeccapurple;
+}
+.ems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1em 0.5em;
+  border: thick solid red;
+}
+.em-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5em;
+  padding: 1em;
+  font-size: 2em;
+}
+.rems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1rem 0.5rem;
+  border: thick solid red;
+}
+.rem-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.exs {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1ex 0.5ex;
+  border: thick solid red;
+}
+.ex-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5ex;
+  padding: 1ex;
+  font-size: 2ex;
+}
+.chs {
+  background-color: cadetblue;
+  width: 10ch;
+}
+.porcentages {
+  background-color: darkkhaki;
+  padding: 5%;
+  margin: 20% 10%;
+  width: 80%;
+  font-size: 100%;
+  height: 100%;
+}
+.heigth-parent {
+  background-color: brown;
+  width: 500px;
+  height: 500px;
+}
+.heigth-child {
+  background-color: coral;
+  width: 50%;
+  height: 50%;
+}
+.viewport {
+  background-color: darkcyan;
+  width: 50vw;
+  /* Recuerda que la etiqueta body tiene margenes por defecto por el navegador, entonces se los quitamos para poder utilizar el 100% y las barras de scroll del navegador forman parte del viewport*/
+  width: 100vw;
+  /* para evitar ese margen definimos el width en % */
+  width: 100%;
+  height: 50vh;
+  font-size: 5vh;
+  padding: 2vh 2vw;
+}
+.vmax,
+.vmin {
+  background-color: darksalmon;
+  border: thick solid seagreen;
+  width: 50vmax;
+  height: 50vmin;
+}

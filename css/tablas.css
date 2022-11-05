@@ -1,0 +1,14 @@
+.table {
+  font-size: 3rem;
+  border-collapse: collapse; /* Se eliminan los dobles lineas */
+  border-collapse: separate; /* Este es el valor por defecto */
+  empty-cells: hide;
+  empty-cells: show; /* Es el valor por defecto */
+}
+table,
+th,
+td {
+  border: thin solid red;
+  border-spacing: 1rem;
+  border-spacing: 0;
+}
