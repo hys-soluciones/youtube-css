@@ -39,6 +39,7 @@ html {
 --transition-timing-funtion none linear ease ease-in ease-out ease-in-out steps
 --transition-deley
 --transition (property duration timing-funtion delay)
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
 */
 .transitions .box {
   background-color: magenta;
@@ -47,11 +48,32 @@ html {
   transition-timing-function: ease;
   transition-delay: 0.5s;
   transition: border-color 2s linear 1s;
-  /* Con transition all se remplaza todo lo anterior escrito */
+  /* Con transition all se remplaza todo lo anterior escrito pero afecta a todas las cajas , con posible perdida de control de ellas*/
   transition: all 2s ease-in-out 250ms;
+  /* Lo mas recomendado es usarla en lñas propiedades que nos intereza */
+  transition: background-color 2s ease-in-out 250ms,
+    border-color 2s ease-in-out 250ms, border-radius 2s ease-in-out 250ms;
 }
 .transitions .box:hover {
   background-color: aquamarine;
   border-color: red;
   border-radius: 2rem;
+}
+
+.transitions .card {
+  transition: all 1s ease-out, border-color 3s steps(5), filter 2s ease-in 1s,
+    box-shadow 1.5s linear 2s;
+}
+.transitions .card:hover {
+  opacity: 0.75;
+  border-color: orchid;
+  filter: blur(0.15rem);
+  box-shadow: 1rem 1rem 2rem 0.5rem #000;
+}
+.transitions .card img {
+  transition: object-position 2s ease-in-out 3s;
+}
+.transitions .card img:hover {
+  /* Con este efecto la imanen se mueve de izq a der */
+  object-position: 00% 50%;
 }
