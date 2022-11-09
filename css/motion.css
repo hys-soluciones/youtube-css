@@ -102,4 +102,38 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
   transform: skewY(-25deg);
   transform: skewY(25deg);
   transform: skew(20deg, 20deg);
+  /* matrix:{ scalaX(),skewY(),skewX(),scalaY(), traslationX(), traslationY() } */
+  transform: matrix(1, 2, 2, 1, 20, 10);
+  transform: translate(25%, -50%) rotate(250deg) skew(20deg, 10deg)
+    scale(-0.5, -0.5);
+}
+.transform-3D {
+  /* Para no estar siempre escribiendo perspective(10rem) lo escribimos en el contenedor padre en este caso en transform-3D */
+  perspective: 10rem;
+}
+.transform-3D img {
+  transition: transform 2s ease-in-out;
+}
+
+.transform-3D img:hover {
+  transform: translateZ(4rem);
+  transform: perspective(1000px) translateZ(4rem);
+  transform: perspective(100rem) translateZ(4rem);
+  transform: perspective(10rem) translateZ(4rem);
+  transform: perspective(10rem) translateZ(-4rem);
+  /* Para no estar siempre escribiendo perspective(10rem) lo escribimos en el contenedor padre en este caso en transform-3D */
+  transform: translateZ(4rem);
+  transform: translate3d(2rem, 50%, -3rem);
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale3d */
+  transform: scaleZ(1.5);
+  transform: scale3d(2, 0.5, 3);
+  /* https://developer.mozilla.org/es/docs/Web/CSS/transform-function/rotate3d */
+  transform: rotateX(50deg);
+  transform: rotatey(50deg);
+  transform: rotatey(-50deg);
+  transform: rotate3d(1, 1, 1, 30deg);
+  transform: rotate3d(1, -0.5, -1, 30deg);
+  transform: rotate3d(1, -0.5, -1, -30deg);
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix3d */
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 50, 100, 0, 1.1);
 }
