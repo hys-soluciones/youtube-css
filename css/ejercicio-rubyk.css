@@ -21,7 +21,9 @@ body {
 @keyframes girarcubo {
   fron {
     /* Desde 0 */
-    transform: rotateY(0deg);
+    transform: rotateY(
+      0deg
+    ); /* Con rotateY gira de forma orizontal y con rotateX gira en forma vertical */
   }
   to {
     /* hasta 360 */
