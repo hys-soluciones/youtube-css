@@ -252,7 +252,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
   animation: myAwesomeAnimations 1.5s;
   animation: myAwesomeAnimations 1.5s ease 250ms 7 alternate both running;
 }
-
+/* Animaciones intermedias se cambia el from y el to por porcentajes % */
 @keyframes myAwesomeAnimations2 {
   0% {
     opacity: 0;
@@ -278,4 +278,206 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
 
 .my-animation-2 {
   animation: myAwesomeAnimations2 2s;
+  animation: myAwesomeAnimations2 5s;
+  animation: myAwesomeAnimations2 1s;
+  animation: myAwesomeAnimations2 6s;
+}
+
+@keyframes multipleAnimation1 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes multipleAnimation2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.animation-multiple {
+  animation: multipleAnimation1 2s infinite;
+  animation: multipleAnimation2 2s infinite;
+  /* Para hacer la multiple animacion se separan con una coma , los barios @keyframes */
+  animation: multipleAnimation1 2s infinite, multipleAnimation2 1s 3;
+}
+.motion-examples {
+  text-align: center;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* alternate se utoliza para evitar el salto que da al comienzo de la animacion y both lo utilizamos para que conserve losestilos al inicio y al final de la animacion */
+.fade-in {
+  font-size: 5vw;
+  animation: fadein 2s linear 2s infinite alternate both;
+}
+.fade-out {
+  font-size: 5vw;
+  animation: fadeout 2s linear 2s infinite alternate both;
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate(-1px, 0);
+  }
+  20%,
+  80% {
+    transform: translate(2px, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate(4px, 0);
+  }
+}
+.shake {
+  font-size: 5vw;
+  cursor: pointer;
+  display: inline-block;
+}
+.shake:hover {
+  animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate(0, 0);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pulse {
+  font-size: 5vw;
+  animation: pulse 1s infinite linear;
+}
+
+@keyframes heartColor {
+  10% {
+    background-color: #d00;
+  }
+}
+/* Vamos a crear un corazo con codigo CSS */
+.heart {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10vw;
+  height: 10vw;
+  /* background-color: #888; */
+  animation: pulse 1s infinite linear;
+}
+.heart::after,
+.heart::before {
+  position: absolute; /*  */
+  content: ""; /* Este atributo se coloca para que se dibuje lo que queremos antes y despues */
+  left: 5vw; /* la mitad del ancho que ledimos a la caja padre */
+  top: 0;
+  width: 5vw;
+  height: 8vw;
+  background-color: #a00;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  border-radius: 5vw 5vw 0 0;
+  animation: heartColor 1s infinite;
+}
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+@keyframes spinert {
+  0% {
+    transform: rotate(0deg);
+  }
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  /* background-color: red; */
+  width: 5vw;
+  height: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.5vw solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: aqua;
+  animation: spinert 1s ease-in-out infinite;
+}
+/* Animacion de Botones */
+
+.btn {
+  position: relative;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  width: 15rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0.25rem 0.25rem 0.5rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+/* .anim-button::after. Por que queremos que este despues del boton como un border abajo del boton*/
+.anim-button::after {
+  content: "";
+  position: absolute; /* Porque el elemento padre es relativo */
+  bottom: 0;
+  width: 0;
+  height: 0.25rem; /*  un 10% de la altura original */
+  background-color: #d00;
+  transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+/* A los elementos que tienen la clase anim-button en el estado hover asu seudo elemento after */
+.anim-button:hover:after {
+  width: 100%;
+}
+.to-left::after {
+  left: 0;
+}
+.to-center::after {
+  left: 50%;
+}
+.to-center:hover::after {
+  left: 0;
+}
+.to-right::after {
+  right: 0;
 }
