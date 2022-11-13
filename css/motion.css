@@ -2,6 +2,7 @@ html {
   box-sizing: border-box;
   font-family: sans-serif;
   font-size: 16px;
+  overflow-x: hidden; /* Para que el scroll orizontal no nos genere conflicto */
 }
 *,
 *::after,
@@ -440,7 +441,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
   border-top-color: aqua;
   animation: spinert 1s ease-in-out infinite;
 }
-/* Animacion de Botones */
+/* Animacion de Botones .
+Con btn definimos los estilos del boton
+*/
 
 .btn {
   position: relative;
@@ -455,7 +458,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
   overflow: hidden;
   box-shadow: 0.25rem 0.25rem 0.5rem 0.25rem rgba(0, 0, 0, 0.2);
 }
-/* .anim-button::after. Por que queremos que este despues del boton como un border abajo del boton*/
+/* .anim-button::after. Por que queremos que este despues del boton como un border abajo del boton.
+con anim-button::after es todo lo referente a formar la linea roja debajo del boton
+*/
 .anim-button::after {
   content: "";
   position: absolute; /* Porque el elemento padre es relativo */
@@ -469,6 +474,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
 .anim-button:hover:after {
   width: 100%;
 }
+/*  estas son las que alimentan los movimientos de estas lineas */
 .to-left::after {
   left: 0;
 }
@@ -480,4 +486,179 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
 }
 .to-right::after {
   right: 0;
+}
+/*  para aplicar los efectos de gradientes en este boton */
+.anim-bg-gradient {
+  background-image: linear-gradient(to right, pink, violet, orange, orangered);
+  background-size: 300% 100%; /* Esto lo que hace es estirar el gradiente y solo se veran dos colores*/
+  transition: background-position 0.5s ease-in-out; /*  Esta transicion es para que no sea un movimiento subito o rapido */
+}
+.anim-bg-gradient:hover {
+  background-position: 100%, 0; /* Se cambia la posicion del fondo de 0,0 a 100%,0 es desir al final osea alos colores anaranjados, pero para que el cambio no sea subito se hace una transicion fuera del hover*/
+}
+/* ------------------------------------------- */
+.tabs-menu {
+  position: relative; /* Para que se centre */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 70%;
+  height: 3rem;
+  display: flex; /* Para que los elementos hijos trabajen en una linea */
+  justify-content: space-between; /* Reparte loe elementos similar entre los espacion */
+  align-items: center; /* Para que no halla problemas de alineamiento en vertical */
+  background-color: #ddd;
+}
+.tabs-menu input[type="radio"] {
+  display: none;
+}
+.tabs-menu label {
+  position: relative;
+  z-index: 1;
+  width: calc(100% / 4 -0.5rem);
+  /* Calculamos el ancho y lo dividimos entre 4 y le restamos .5rem que ledimos en los padins*/
+  text-align: center;
+  cursor: pointer;
+}
+.tabs-menu label:hover {
+  color: #fff;
+}
+.tabs-menu input[type="radio"]:checked + label {
+  color: #fff;
+}
+
+.tab-bg-hover {
+  position: absolute;
+  width: calc(100% / 4 - 0.5rem);
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(90deg, #a00, #d00);
+  transition: transform 300ms ease-in-out; /* Con esto desimos que aplicamos una transicion en la propiedad transfor que dure 300ms en su movimiento en direccion X y con un efecto de aceleracion de ease-in-out */
+}
+/* Aca desimo a la #tab-1:checked cuando este chequeada al herano que tiene .tab-bg-hover aplicale una transformacion en  transform: translateX(0);*/
+#tab-1:checked ~ .tab-bg-hover {
+  transform: translateX(0);
+}
+
+#tab-2:checked ~ .tab-bg-hover {
+  transform: translateX(100%);
+}
+
+#tab-3:checked ~ .tab-bg-hover {
+  transform: translateX(200%);
+}
+
+#tab-4:checked ~ .tab-bg-hover {
+  transform: translateX(300%);
+}
+/* -BOTON DE AMBURGESA-*/
+/* Esta es la clase que activa el boton */
+.off-canvas-btn {
+  position: fixed; /* LE DAMOS UN POSICIONAMIENTO FIJO */
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 999;
+  width: 3rem; /* ancho */
+  height: 3rem; /* Alto */
+  cursor: pointer;
+  /* opacity: 0.25; */
+  opacity: 0;
+}
+
+.off-canvas-burger {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 998;
+  width: 3rem;
+  height: 0.6rem; /* de aca para arriba tiene los mismos valores que off-canvas-btn  menos el z-index y el height con .6rem para dividirlo en 5 fracciones*/
+  border-radius: 0.3rem;
+  background-color: #d00;
+  transform: rotate(0deg) translate(0, -1.2rem); /* para que la barra suba mas o menos a la mitad del contenedor */
+  transform-origin: top left; /* para que gire desde la ezquina superior izquierda */
+  transition: transform 500ms ease, background-color 500ms ease;
+  /* background-color 500ms ease;con esto hacemos una animacion cuano se desaparece la linea del centro*/
+}
+/* Con estas dos seudo clases creamos la linea de arriba y la de abajo */
+.off-canvas-burger::before,
+.off-canvas-burger::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.6rem;
+  border-radius: 0.3rem;
+  background-color: #d00;
+  transition: transform 500ms ease;
+}
+
+.off-canvas-burger::before {
+  transform: rotate(0deg) translate(0, -0.9rem);
+  /* background-color: blue; */
+}
+
+.off-canvas-burger::after {
+  transform: rotate(0deg) translate(0, 0.3rem);
+  /* background-color: green; */
+}
+
+/* Con lo que sigue se hace desaparecer la linea de en medio */
+.off-canvas-btn:checked + .off-canvas-burger {
+  background-color: transparent;
+}
+/* Con los siguiente dos movimientos formamos la X */
+.off-canvas-btn:checked + .off-canvas-burger::before {
+  transform: rotate(45deg) translate(0, 0);
+}
+
+.off-canvas-btn:checked + .off-canvas-burger::after {
+  transform: rotate(-45deg) translate(0.4rem, -0.5rem);
+}
+/* Se va a maquetear el menu off-canvas */
+.off-canvas-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 997;
+  display: flex;
+  justify-content: center; /* Centro en el eje principal*/
+  align-items: center; /* Centro en el eje transversal */
+  background-color: #0008;
+  transition: transform 500ms ease-in-out;
+  /* transform: translate(0, -100%);
+  transform: translate(0, 100%);
+  transform: translate(100%, 0); */
+  transform: translate(-100%, 0);
+}
+
+.off-canvas-btn:checked ~ .off-canvas-menu {
+  transform: translate(0, 0);
+}
+/* Con lo siguiente le damos estilos al contenedor */
+.off-canvas-menu-container {
+  width: 100%;
+  height: 100vh;
+  display: flex; /* con los dos siguientes se centran los enlaces */
+  flex-direction: column;
+  justify-content: center;
+}
+/* Domos estilos a los enlaces */
+.off-canvas-link {
+  border-bottom: thin solid #d00;
+  padding: 2rem; /* nos da el espacio de arriba y de abajo */
+  font-size: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 300ms ease;
+}
+/* Con esto formamos el border de arriba para el primer link */
+.off-canvas-link:first-child {
+  border-top: thin solid #d00;
+}
+
+.off-canvas-link:hover {
+  background-color: #d005;
 }
