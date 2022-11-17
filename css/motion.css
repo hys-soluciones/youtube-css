@@ -9,7 +9,9 @@ html {
 *::before {
   box-sizing: inherit;
 } /* con el codigo anterir se reseteo todo el veawport y fijamos las medidad deseadas*/
-
+body {
+  margin: 0;
+}
 .box {
   border: thick solid black;
   /* Centramos el marco */
@@ -661,4 +663,97 @@ con anim-button::after es todo lo referente a formar la linea roja debajo del bo
 
 .off-canvas-link:hover {
   background-color: #d005;
+}
+/* ESTILOS PARA LA VENTANA MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 997;
+  display: flex;
+  justify-content: center; /* Centro en el eje principal*/
+  align-items: center; /* Centro en el eje transversal */
+  background-color: #0008;
+  opacity: 0; /* para animar */
+  pointer-events: none;
+  transition: opacity 500ms ease-in-out;
+}
+/* para que cuando abramos el modal se pueda ver y los enlaces se activen */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-container {
+  position: relative; /*  por que el tache del link que es una X se ba a posicionar con posicionamiento absoluto en el contenedor */
+  border: thick double #d00;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 70%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden; /* para que sea mas responsive */
+  background-color: #fff;
+}
+/* Posicionamos el distintivo del Link en este caso la X */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem; /* Esta es el area que cubre la X en el ancho */
+  height: 3rem; /* Esta es el area que cubre la X en lo alto */
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3rem; /* para centrar de forma vertical el caracter */
+  text-decoration: none; /* para quitar la _ que aparece por debajo de la X */
+  border-radius: 50%;
+  font-weight: bold;
+  color: #fff;
+  background-color: #d00;
+  /* bamos a animar el color de ese link */
+  transition: background-color 300ms linear, transform 300ms ease-in-out;
+}
+.modal-close:hover {
+  background-color: #a00;
+  transform: scale(1.2);
+}
+/* Star Wars Intro */
+@keyframes intro-star-wars {
+  0% {
+    transform: perspective(100vh) rotateX(15deg) translateY(100%);
+  }
+  100% {
+    transform: perspective(100vh) rotateX(25deg) translateY(-200%);
+  }
+}
+
+.star-wars {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* para que pas letras que se salgan del contenedor se oculten */
+  color: #ffb13a;
+  background-image: url("../assets/stars.gif");
+}
+.star-wars-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* Menos que el contenedor padre */
+  text-align: justify; /* Para justificar el texto */
+  letter-spacing: 0.1rem; /* Espaciado entre las letras */
+  animation: intro-star-wars 10s linear infinite;
+}
+.star-wars h2,
+.star-wars h3 {
+  font-size: 7vw;
+  text-align: center;
+}
+
+.star-wars p {
+  font-size: 3vw;
+  line-height: 4rem; /* altura de linea */
 }

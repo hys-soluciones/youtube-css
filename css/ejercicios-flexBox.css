@@ -1,0 +1,41 @@
+/* Formateamos el viwpor */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+.container {
+  margin: auto; /* para que cuando sea mas de 1200px se centre */
+  max-width: 1200px;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap; /* La direccion es Fila y si ba a embolver los elementos */
+}
+.flex-item {
+  border: thin solid #000;
+  flex: 0 0 100%; /* Que no cresca, que no redusca y que tenga el 100% de los elementos */
+}
+/* Con las @media lo que estamos generando es que cuando llege al valor indicado en pixeles aumente o disminulla las columnas */
+@media (min-width: 576px) {
+  .flex-item {
+    flex: 0 0 50%;
+  }
+}
+@media (min-width: 768px) {
+  .flex-item {
+    flex: 0 0 33.3333333333%;
+  }
+}
+@media (min-width: 992px) {
+  .flex-item {
+    flex: 0 0 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .flex-item {
+    flex: 0 0 16.666666666%;
+  }
+}
