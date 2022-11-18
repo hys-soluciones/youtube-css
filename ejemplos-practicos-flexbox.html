@@ -23,6 +23,11 @@
       min-height: 100vh;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     /* Le decimos al main que ocupe el espacio sobrante del vh */
     main {
       flex-grow: 1;
@@ -66,6 +71,16 @@
       font-size: 5vw;
     }
 
+    .flex-responsive {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .flex-responsive-item {
+      border: thin solid #f60;
+      flex: 1 1 200px;
+    }
+
     @media (min-width:800px) {
       .header {
         display: flex;
@@ -79,6 +94,23 @@
 
       .menu li {
         padding: .5rem;
+      }
+
+      .flex-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .flex-item {
+        flex: 0 0 50%;
+      }
+
+      .flex-order-1 {
+        order: 1;
+      }
+
+      .flex-row-reverse {
+        flex-direction: row-reverse;
       }
     }
   </style>
@@ -103,6 +135,51 @@
         <h1>Flexbox is Fuckin`COOL!!!</h1>
       </div>
     </article>
+    <section class="flex-container">
+      <article class="flex-item">
+        <h2>Titulo</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, numquam nihil consectetur optio commodi
+          earum soluta, reiciendis corporis inventore laborum et, similique ex cumque dolor est veritatis deserunt
+          repellat doloremque?</p>
+      </article>
+      <article class="flex-item">
+        <img src="http://placeimg.com/400/400/people" alt="">
+      </article>
+
+    </section>
+    <section class="flex-container flex-row-reverse">
+      <article class="flex-item">
+        <h2>Titulo</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, numquam nihil consectetur optio commodi
+          earum soluta, reiciendis corporis inventore laborum et, similique ex cumque dolor est veritatis deserunt
+          repellat doloremque?</p>
+      </article>
+      <article class="flex-item">
+        <img src="http://placeimg.com/400/400/arch" alt="">
+      </article>
+    </section>
+    <h2>Responsive sin Media Queries con Flexbox</h2>
+    <section class="flex-responsive">
+      <article class="flex-responsive-item">Item Responsive 1</article>
+      <article class="flex-responsive-item">Item Responsive 2</article>
+      <article class="flex-responsive-item">Item Responsive 3</article>
+      <article class="flex-responsive-item">Item Responsive 4</article>
+      <article class="flex-responsive-item">Item Responsive 5</article>
+      <article class="flex-responsive-item">Item Responsive 6</article>
+      <article class="flex-responsive-item">Item Responsive 7</article>
+      <article class="flex-responsive-item">Item Responsive 8</article>
+      <article class="flex-responsive-item">Item Responsive 9</article>
+      <article class="flex-responsive-item">Item Responsive 10</article>
+      <article class="flex-responsive-item">Item Responsive 11</article>
+      <article class="flex-responsive-item">Item Responsive 12</article>
+      <article class="flex-responsive-item">Item Responsive 13</article>
+      <article class="flex-responsive-item">Item Responsive 14</article>
+      <article class="flex-responsive-item">Item Responsive 15</article>
+      <article class="flex-responsive-item">Item Responsive 16</article>
+      <article class="flex-responsive-item">Item Responsive 17</article>
+      <article class="flex-responsive-item">Item Responsive 18</article>
+      <article class="flex-responsive-item">Item Responsive 19</article>
+    </section>
   </main>
   <footer class="titulares">
     <h2>Stiky Footer</h2>
