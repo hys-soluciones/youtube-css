@@ -61,16 +61,22 @@
     .hero-image div {
       min-height: inherit;
       display: flex;
+      /* Para el centrado del texto */
       justify-content: center;
+      /* Para el centrado del texto */
       align-items: center;
+      /* Para el centrado del texto */
       text-align: center;
+      /* Para el centrado del texto */
       background-color: rgba(0, 0, 0, .75);
     }
 
     .hero-image h1 {
       font-size: 5vw;
+      /* Para que cresca proporcionalmente al tamaño del viwhey las letras o el texto*/
     }
 
+    /* ---------------------------------- */
     .flex-responsive {
       display: flex;
       flex-flow: row wrap;
@@ -79,8 +85,10 @@
     .flex-responsive-item {
       border: thin solid #f60;
       flex: 1 1 200px;
+      /* Esta linea es el que hace el responsive por nosotros en la section de numeros */
     }
 
+    /* ----------------------------------- */
     @media (min-width:800px) {
       .header {
         display: flex;
@@ -99,6 +107,7 @@
       .flex-container {
         display: flex;
         align-items: center;
+        /* Para centrar el texto */
       }
 
       .flex-item {
@@ -130,7 +139,7 @@
     </nav>
   </header>
   <main>
-    <h2>Contenido</h2>
+    <!--   <h2>Contenido</h2> -->
     <article class="hero-image">
       <div>
         <h1>Flexbox is Fuckin`COOL!!!</h1>
@@ -144,7 +153,7 @@
           repellat doloremque?</p>
       </article>
       <article class="flex-item">
-        <img src="http://placeimg.com/400/400/people" alt="">
+        <img src="http://placeimg.com/400/400/people">
       </article>
 
     </section>
@@ -156,7 +165,7 @@
           repellat doloremque?</p>
       </article>
       <article class="flex-item">
-        <img src="http://placeimg.com/400/400/arch" alt="">
+        <img src="http://placeimg.com/400/400/arch">
       </article>
     </section>
     <h2>Responsive sin Media Queries con Flexbox</h2>
