@@ -15,8 +15,10 @@ Dentro de el modelo de cajas hay que cosiderar que una caja tendra 4 lados que b
 */
 
 h1 {
+  margin-left: 4em;
   width: 400px;
   height: 200px;
+  padding-left: 1em;
   /* Propiedades de tipo shorthand */
   border-color: green;
   border-top-color: red;
@@ -200,7 +202,7 @@ html {
   width: 800px;
   height: 1000px;
   padding: 16px;
-  /* para centrar las cajas se recomienda el uso de margenes */
+  /* para centrar las cajas se recomienda el uso de margenes auto */
   margin-left: auto;
   margin-right: auto;
 }

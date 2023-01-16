@@ -45,8 +45,8 @@ Estas 5 posiciones no funcionan con el valor de static.
   height: 50px;
   /*  top: 50px;
   left: 50px; */
-  bottom: 50px;
-  right: 50px;
+  /* bottom: 50px; */
+  /* right: 50px; */
   /* Cuando se escribe denuevo un top y un left el botton y el right son ignorados */
   top: 190px;
   left: 50px;
@@ -59,10 +59,11 @@ Estas 5 posiciones no funcionan con el valor de static.
   background-color: tomato;
   position: absolute;
   width: 200px;
-  height: 50px;
+  height: 80px;
+  text-align: center;
   /* right: 0;
-  bottom: 0; */
-  /* top: 100px;
+  bottom: 0;  */
+  /* top: 100 px;
   left: 100px; */
   right: 0;
   bottom: 0;
@@ -76,7 +77,7 @@ Estas 5 posiciones no funcionan con el valor de static.
   top: 70px;
   left: 60px;
 }
-.absolute-chid {
+.absolute-child {
   background-color: lightcoral;
   position: absolute;
   /* left: 0;
@@ -100,6 +101,18 @@ fixed: El elemento pierde sus dimensiones y posicion original en el flujo del do
   top: 30px;
   left: 400px;
 }
+.fixed-2 {
+  background-color: blue;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 50px;
+  top: 550px;
+  left: 0;
+}
 /* 
 sticky: Es una convinacion de posicionamiento relative y fixed, para este posicionamiento las propiedades top, left, botton, right no mueven el elemento, sirven como un punto de referencia mientras no llegen a ese valor el elemento se comporta como relative, cuado llega se comporta como fixed.
 
@@ -111,11 +124,12 @@ Para que este comportamiento funcione el elemento sticky debe ser hijo directo d
   top: 50px;
 }
 .sticky-parent {
+  background-color: bisque;
   border: thin dashed black;
-  height: 600px;
+  height: 500px;
 }
 .sticky-chid {
-  background-color: lightseagreen;
+  background-color: rgb(59, 150, 100);
   position: sticky;
   top: 75px;
 }
@@ -130,6 +144,8 @@ Un elemento padre nunca podra estar sobre sus elementos hijos, sin embargo los e
 .z-index-2 {
   background-color: mediumaquamarine;
   border: thin solid black;
+  font-size: 2em;
+  text-align: center;
   position: relative;
   width: 200px;
   height: 200px;
@@ -139,21 +155,30 @@ Un elemento padre nunca podra estar sobre sus elementos hijos, sin embargo los e
   z-index: 0;
 }
 .z-index-2 {
-  top: -200px;
+  top: -150px;
   left: 100px;
   z-index: -1;
 }
+/* Un elemento padre nunca podra estar sobre 
+sus elementos hijos, sin embargo los 
+elementos hijos si pueden dandeles un valor 
+negativo y que el elemento padre no tenga 
+definido valor de z-index. */
 .z-index-parent {
-  background-color: mediumorchid;
+  background-color: rgb(207, 131, 226);
+  text-align: center;
+  font-size: 2em;
   width: 300px;
   height: 300px;
   position: relative;
 }
 .z-index-child {
-  background-color: mediumvioletred;
+  background-color: rgb(182, 69, 140);
   position: relative;
   width: 150px;
   height: 150px;
   top: -75px;
   left: 75px;
+  z-index: -2;
 }
+/* ESTO NO ES ACONCEJABLE */

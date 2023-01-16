@@ -18,7 +18,7 @@ h1 {
 
 /* Existen 3 selectore basicos
 -Etiqueta: Son elementos HTML
--Identificadores:atributos id-#
+ -Identificadores:atributos id-#
 -Clases: atributo class  (.)simbolo del punto */
 p {
   color: midnightblue;
@@ -73,10 +73,6 @@ dar estilo con clases nos permite reutilizar nuestro codigo en css*/
 .selectores-atributos a[href^="http://"]
 {
   text-decoration: none;
-}
-/* El comodin del $  aplica al texto en cuestion al final */
-.selectores-atributos a[href$=".com"] {
-  background-color: black;
 }
 /* El comodin del $  aplica al texto en cuestion al final */
 .selectores-atributos a[href$=".com"] {
@@ -143,9 +139,11 @@ dar estilo con clases nos permite reutilizar nuestro codigo en css*/
 .lista-pseudoclases li:nth-child(3n + 1) {
   font-weight: bold;
 }
+/* even : es par */
 .lista-pseudoclases li:nth-child(even) {
   background-color: yellow;
 }
+/* odd : es impar  */
 .lista-pseudoclases li:nth-child(odd) {
   background-color: orange;
 }
